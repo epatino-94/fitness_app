@@ -12,7 +12,7 @@ const CalorieForm = (props) => {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
-    const [maintenanceCalories, setMaintenanceCalories] = React.useState(3000);
+    const [maintenanceCalories, setMaintenanceCalories] = React.useState(null);
 
     //console.log('Current Errors:',errors)
 
