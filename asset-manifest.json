@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/fitnessApp/static/css/main.9e75bc1e.css",
+    "main.js": "/fitnessApp/static/js/main.37031ad8.js",
+    "index.html": "/fitnessApp/index.html",
+    "static/media/brightness-alt-high.svg": "/fitnessApp/static/media/brightness-alt-high.3e49cce1e978039d380955b51da20bf5.svg",
+    "static/media/moon-fill.svg": "/fitnessApp/static/media/moon-fill.1881f5a5cf98b35b6a1a111c1d1da2f2.svg",
+    "main.9e75bc1e.css.map": "/fitnessApp/static/css/main.9e75bc1e.css.map",
+    "main.37031ad8.js.map": "/fitnessApp/static/js/main.37031ad8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9e75bc1e.css",
+    "static/js/main.37031ad8.js"
+  ]
+}
