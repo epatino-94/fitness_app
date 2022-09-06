@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/fitnessApp/static/css/main.9e75bc1e.css",
-    "main.js": "/fitnessApp/static/js/main.ebf7932f.js",
-    "index.html": "/fitnessApp/index.html",
-    "static/media/brightness-alt-high.svg": "/fitnessApp/static/media/brightness-alt-high.3e49cce1e978039d380955b51da20bf5.svg",
-    "static/media/moon-fill.svg": "/fitnessApp/static/media/moon-fill.1881f5a5cf98b35b6a1a111c1d1da2f2.svg",
-    "main.9e75bc1e.css.map": "/fitnessApp/static/css/main.9e75bc1e.css.map",
-    "main.ebf7932f.js.map": "/fitnessApp/static/js/main.ebf7932f.js.map"
+    "main.css": "/fitness_app/static/css/main.9e75bc1e.css",
+    "main.js": "/fitness_app/static/js/main.4fb7def0.js",
+    "index.html": "/fitness_app/index.html",
+    "static/media/brightness-alt-high.svg": "/fitness_app/static/media/brightness-alt-high.3e49cce1e978039d380955b51da20bf5.svg",
+    "static/media/moon-fill.svg": "/fitness_app/static/media/moon-fill.1881f5a5cf98b35b6a1a111c1d1da2f2.svg",
+    "main.9e75bc1e.css.map": "/fitness_app/static/css/main.9e75bc1e.css.map",
+    "main.4fb7def0.js.map": "/fitness_app/static/js/main.4fb7def0.js.map"
   },
   "entrypoints": [
     "static/css/main.9e75bc1e.css",
-    "static/js/main.ebf7932f.js"
+    "static/js/main.4fb7def0.js"
   ]
 }
