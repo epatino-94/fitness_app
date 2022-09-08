@@ -28,7 +28,7 @@ const MuscleSection = (props) => {
     return (
         <Section viewport={viewport} theme={theme}>
             <SVGWrapper viewport={viewport} theme={theme} hoverMuscle={hoverMuscle} currentMuscle={currentMuscle}>
-                <ReactSVG src="/assets/icons/figure.svg" />
+                <ReactSVG src="/fitness_app/assets/icons/figure.svg" />
             </SVGWrapper>
             {currentMuscle !== null ?
                 <ExerciseComponentWrapper viewport={viewport} theme={theme}>

@@ -42,10 +42,10 @@ const Carousel = (props) => {
     return (
         <CarouselWrapper viewport={viewport} theme={theme}>
             <RightCaretWrapper onClick={() => nextSlide()} viewport={viewport} theme={theme}>
-                <img alt="right-caret" src='/assets/icons/caret-right-fill.svg'></img>
+                <img alt="right-caret" src='/fitness_app/assets/icons/caret-right-fill.svg'></img>
             </RightCaretWrapper>
             <LeftCaretWrapper onClick={() => prevSlide()} viewport={viewport} theme={theme}>
-                <img alt="left-caret" src='/assets/icons/caret-left-fill.svg'></img>
+                <img alt="left-caret" src='/fitness_app/assets/icons/caret-left-fill.svg'></img>
             </LeftCaretWrapper>
             {carouselTiles.length > 0 && carouselTiles[currentCarouselIndex]}
         </CarouselWrapper>

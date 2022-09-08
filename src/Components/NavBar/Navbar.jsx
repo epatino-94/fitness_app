@@ -5,8 +5,8 @@ import styled from 'styled-components';
 const NavBar = (props) => {
 
     const {viewport,theme,invertTheme} = props //Deconstructing w/o props.viewport
-    const SunIcon = <img alt="left-caret" src='/assets/icons/brightness-alt-high.svg'></img>
-    const MoonIcon = <img alt="left-caret" src='/assets/icons/moon-fill.svg'></img>
+    const SunIcon = <img alt="left-caret" src='/fitness_app/assets/icons/brightness-alt-high.svg'></img>
+    const MoonIcon = <img alt="left-caret" src='/fitness_app/assets/icons/moon-fill.svg'></img>
     return(
         <Section viewport={viewport} theme={theme}>
             <HeaderWrapper viewport={viewport} theme={theme}>

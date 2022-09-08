@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = ({ mode } = { mode: "production" }) => {
     console.log(`mode is: ${mode}`);
@@ -8,7 +9,7 @@ module.exports = ({ mode } = { mode: "production" }) => {
             mode,
             entry: "/src/index.js",
             output: {
-                publicPath: "/",
+                publicPath: "/fitness_app/",
                 path: path.resolve(__dirname, "build"),
                 filename: "bundle.js"
             },
@@ -20,23 +21,14 @@ module.exports = ({ mode } = { mode: "production" }) => {
             },
             module: {
                 rules: [
-                 {
-                    test: /\.jpe?g|png$/,
-                    exclude: /node_modules/,
-                    use: ["url-loader", "file-loader"]
-                },
                     {
                         test: /\.(js|jsx)$/,
                         exclude: /node_modules/,
                         loader: "babel-loader"
                     },
                     {
-                      test: /\.svg$/,
-                      use: ['@svgr/webpack'],
-                    },
-                    {
-                      test: /\.(png|jp(e*)g|svg|gif)$/,
-                      use: ['file-loader'],
+                      test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                      loader:'file-loader'
                     },
                     {
                       test: /\.css$/i,
@@ -48,6 +40,12 @@ module.exports = ({ mode } = { mode: "production" }) => {
                 new HtmlWebpackPlugin({
                     template: "./public/index.html"
                 }),
+                new CopyWebpackPlugin({
+                  patterns: [
+                  {from:'./public/fitness_app/assets/icons', to: "../build/assets/icons"},
+                  {from:'./public/fitness_app/assets/images', to: "../build/assets/images"}
+                  ]
+                })
             ]
         }
 };
