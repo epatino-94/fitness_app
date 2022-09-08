@@ -1,12 +1,12 @@
 import React from "react";
 import styled from 'styled-components';
-import {ReactComponent as MoonIcon} from '../../assets/icons/moon-fill.svg'
-import {ReactComponent as SunIcon} from '../../assets/icons/brightness-alt-high.svg'
+
 
 const NavBar = (props) => {
 
     const {viewport,theme,invertTheme} = props //Deconstructing w/o props.viewport
-
+    const SunIcon = <img alt="left-caret" src='/assets/icons/brightness-alt-high.svg'></img>
+    const MoonIcon = <img alt="left-caret" src='/assets/icons/moon-fill.svg'></img>
     return(
         <Section viewport={viewport} theme={theme}>
             <HeaderWrapper viewport={viewport} theme={theme}>
@@ -14,7 +14,7 @@ const NavBar = (props) => {
                     fitnessApp   
                 </h1>
                 <IconWrapper onClick={()=>invertTheme(theme)} viewport={viewport} theme={theme}>
-                    {theme === 'light' ? <MoonIcon/> : <SunIcon/>}
+                    {theme === 'light' ? MoonIcon : SunIcon}
                 </IconWrapper>
             </HeaderWrapper>
         </Section>
@@ -35,6 +35,7 @@ const IconWrapper = styled.div`
         opacity: 0.5;
         height: 35px;
         width: 35px;
+        cursor:pointer;
     }
 
 `
@@ -65,6 +66,7 @@ const Section = styled.section`
     position: fixed;
     width: 100%;
 
+    z-index: 100;
 
     ${props=>props.viewport === 'Mobile' && `
     `}

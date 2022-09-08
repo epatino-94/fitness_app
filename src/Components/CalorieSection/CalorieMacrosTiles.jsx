@@ -7,7 +7,7 @@ const CalorieMacrosTiles = (props) => {
 
     const { viewport, theme, maintenanceCalories, carbLevel } = props;
 
-
+    console.log('viewport',viewport);
     const calculateMacros = (maintenanceCalories,carbLevel) =>{
         let protein = 4.0;
         let carbs = 4.0;
@@ -69,6 +69,7 @@ const HeaderWrapper = styled.div`
     ${props => props.viewport === 'Mobile' && `
         padding: 20px 0px;
     `}
+
 `
 
 const TileWrapper = styled.div`
@@ -100,6 +101,8 @@ const TileWrapper = styled.div`
         font-weight: normal;
         font-style: italic;
     }
+
+
 `
 
 const ResultsTileWrapper = styled.div`

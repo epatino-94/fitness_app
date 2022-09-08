@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import NavBar from './Components/NavBar/Navbar';
 import CalorieSection from './Components/CalorieSection/CalorieSection';
-
+import MuscleSection from './Components/MuscleSection/MuscleSection';
 
 function App() {
 
@@ -22,12 +22,12 @@ function App() {
     window.addEventListener("resize",handleResize);
   },[]);
   
-  
 
   return (
     <>
       <NavBar invertTheme={invertTheme} viewport={viewport} theme={theme}/>
       <CalorieSection viewport={viewport} theme={theme}/>
+      <MuscleSection viewport={viewport} theme={theme}/>
     </>
   );
 }

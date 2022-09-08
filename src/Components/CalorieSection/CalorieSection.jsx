@@ -73,6 +73,7 @@ const FormHeader = styled.div`
 const Section = styled.div`
     display: block;
     justify-content: center;
+    padding: 0px 0px;
     align-items: center;
     ${props=>props.viewport === 'Mobile' && `
     `}

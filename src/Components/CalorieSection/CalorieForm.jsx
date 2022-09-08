@@ -104,7 +104,7 @@ const FormWrapper = styled.section`
 `
 
 const Section = styled.section`
-    padding: 40px 0px;
+    padding: 0px 0px;
     width: 100%;
     display: flex;
     justify-content:center;

@@ -27,6 +27,7 @@ const InputWrapper = styled.div`
     padding: 5px 0px;
     
     input{
+        cursor: pointer;
         &:checked:after{
         width: 14px;
         height: 14px;
