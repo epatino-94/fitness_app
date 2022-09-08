@@ -1,1 +1,0 @@
-import React from"react";import ReactDOM from"react-dom/client";import"./index.css";import App from"./App";var root=ReactDOM.createRoot(document.getElementById("root"));root.render(React.createElement(React.Fragment,null,React.createElement(App,null)));
