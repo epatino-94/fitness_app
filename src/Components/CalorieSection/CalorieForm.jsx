@@ -59,9 +59,9 @@ const CalorieForm = (props) => {
             <FormWrapper viewport={viewport}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <RadioButton errors={errors} validation={{required: 'Gender is required.'}} theme={theme} id='gender' register={register} buttonData={genderData} label='Gender' />
-                    <InputBox errors={errors} validation={{required: 'Age is required.', pattern: {value:/^(18|19|2\d|3\d|4\d|5\d|6\d|7\d|80)$/, message:'Age must be number between 18-80.'}} } placeHolder='ages 18-80' theme={theme} register={register} label="Age" id="age" />
-                    <InputBox errors={errors} validation={{required: 'Height is required.'}} placeHolder='height in cm' theme={theme} register={register} label="Height" id="height" />
-                    <InputBox errors={errors} validation={{required: 'Weight is required.'}} placeHolder='weight in kg' theme={theme} register={register} label="Weight" id="weight" />
+                    <InputBox errors={errors} validation={{required: 'Age is required.', pattern: {value:/^(18|19|2\d|3\d|4\d|5\d|6\d|7\d|80)$/, message:'Age must be number between 18-80.'}}} placeHolder='ages 18-80' theme={theme} register={register} label="Age" id="age" />
+                    <InputBox errors={errors} validation={{required: 'Height is required.',pattern: {value:/^\d*\.?\d*$/, message:'Height must be a number.'}}} placeHolder='height in cm' theme={theme} register={register} label="Height" id="height" />
+                    <InputBox errors={errors} validation={{required: 'Weight is required.',pattern: {value:/^\d*\.?\d*$/, message:'Weight must be a number.'}}} placeHolder='weight in kg' theme={theme} register={register} label="Weight" id="weight" />
                     <Dropdown errors={errors} validation={{required: 'Activity level is required.'}} theme={theme} register={register} id='activity' dropDownData={dropDownData} label="Activity Level" />
                     <SubmitWrapper theme={theme}>
                         <input value='Calculate' type="submit" />
