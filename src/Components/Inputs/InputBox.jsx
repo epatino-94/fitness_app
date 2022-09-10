@@ -4,12 +4,15 @@ import styled from "styled-components"
 
 const InputBox = (props) => {
 
-    const {errors} = props;
+    const {errors,touched} = props;
 
     const displayErrorBorder= errors[`${props.id}`]?.message ? true : false;
+    const isTouched = `${props.id}` in touched ? true:false; 
+
+    console.log('Current Errors:',isTouched)
 
     return (
-        <InputWrapper error={displayErrorBorder} theme={props.theme}>
+        <InputWrapper touched={isTouched} error={displayErrorBorder} theme={props.theme}>
             <label htmlFor={props.id}>{props.label}</label>
             <input placeholder={props.placeHolder} name={props.id} {...props.register(`${props.id}`, props.validation)} />
             {errors[`${props.id}`]?.message && (
@@ -47,7 +50,10 @@ const InputWrapper = styled.div`
         border: 1px solid black;
         border-radius: 10px;
         ${props=>props.error === true && `
-            border: 1px solid red;
+            border: 2px solid red;
+        `}
+        ${props=>props.touched === true && props.error === false && `
+            border: 2px solid green;
         `}
     }
     
