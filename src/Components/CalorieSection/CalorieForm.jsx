@@ -10,11 +10,11 @@ const CalorieForm = (props) => {
 
     const { viewport, theme } = props;
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, formState: { errors } } = useForm({mode:'onChange'});
 
     const [maintenanceCalories, setMaintenanceCalories] = React.useState(null);
 
-    //console.log('Current Errors:',errors)
+    console.log('Current Errors:',errors)
 
 
     const calculateMultipler = (activity) => {
@@ -58,11 +58,11 @@ const CalorieForm = (props) => {
             :
             <FormWrapper viewport={viewport}>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <RadioButton theme={theme} id='gender' register={register} buttonData={genderData} label='Gender' />
-                    <InputBox placeHolder='ages 18-80' theme={theme} register={register} label="Age" id="age" />
-                    <InputBox placeHolder='height in cm' theme={theme} register={register} label="Height" id="height" />
-                    <InputBox placeHolder='weight in kg' theme={theme} register={register} label="Weight" id="weight" />
-                    <Dropdown theme={theme} register={register} id='activity' dropDownData={dropDownData} label="Activity Level" />
+                    <RadioButton errors={errors} validation={{required: 'Gender is required.'}} theme={theme} id='gender' register={register} buttonData={genderData} label='Gender' />
+                    <InputBox errors={errors} validation={{required: 'Age is required.', pattern: {value:/^(18|19|2\d|3\d|4\d|5\d|6\d|7\d|80)$/, message:'Age must be number between 18-80.'}} } placeHolder='ages 18-80' theme={theme} register={register} label="Age" id="age" />
+                    <InputBox errors={errors} validation={{required: 'Height is required.'}} placeHolder='height in cm' theme={theme} register={register} label="Height" id="height" />
+                    <InputBox errors={errors} validation={{required: 'Weight is required.'}} placeHolder='weight in kg' theme={theme} register={register} label="Weight" id="weight" />
+                    <Dropdown errors={errors} validation={{required: 'Activity level is required.'}} theme={theme} register={register} id='activity' dropDownData={dropDownData} label="Activity Level" />
                     <SubmitWrapper theme={theme}>
                         <input value='Calculate' type="submit" />
                     </SubmitWrapper>
@@ -75,6 +75,7 @@ const CalorieForm = (props) => {
 
 const SubmitWrapper = styled.div`
     padding: 10px 0px;
+    padding-bottom: 20px;
     input{
         width: 100%;
         ${props => props.theme === 'light' && `
@@ -94,20 +95,25 @@ const SubmitWrapper = styled.div`
 `
 
 const FormWrapper = styled.section`
-    width: 250px;
+    width:270px;
     ${props=>props.viewport === 'Mobile' && `
-            width: 90%;
-        `}
-    ${props=>props.viewport !== 'Mobile' && `
-            padding-bottom: 135px;
-        `}
+            width: 80%;
+    `}
+
+    padding: 10px 10px;
+    border-radius: 8px;
+    background-filter: blur(20px);
+    background-color: rgba(255,255,255,0.5);
+    box-shadow: 0 1px 12px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.3);
 `
 
 const Section = styled.section`
-    padding: 0px 0px;
+    padding: 20px 0px;
     width: 100%;
     display: flex;
     justify-content:center;
+    
 `
 
 

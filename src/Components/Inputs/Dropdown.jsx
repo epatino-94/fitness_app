@@ -8,7 +8,7 @@ const Dropdown = (props) => {
     return (
         <DropdownWrapper theme={theme}>
             <label htmlFor={props.id}>{props.label}</label>
-            <select {...register(`${props.id}`, { required: true })} name={props.id} id={props.id}>
+            <select {...register(`${props.id}`, props.validation)} name={props.id} id={props.id}>
                 {dropDownData.map((elem,index)=>{
                     return <option key={index} value={elem.value}>{elem.text}</option>
                 })}
@@ -21,9 +21,9 @@ const DropdownWrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding: 10px 0px;
+    font-weight: bold;
     ${props=>props.theme === 'dark' && `
-            color:white;
-            font-weight: bold;
+            color:black;
         `}
     select{
         height: 35px;

@@ -3,7 +3,9 @@ import styled from 'styled-components';
 
 const RadioButton = (props) => {
 
-    const { buttonData, id, theme } = props;
+    const { buttonData, id, theme, errors } = props;
+
+    const displayErrorBorder= errors[`${props.id}`]?.message ? true : false;
 
     return (
         <RadioButtonWrapper theme={theme}>
@@ -12,16 +14,28 @@ const RadioButton = (props) => {
                 {buttonData.map((buttonLabel, index) => {
                     return (
                         <React.Fragment key={index}>
-                            <input {...props.register(`${id}`, { required: true })} type="radio" id={buttonLabel} name={id} value={buttonLabel} />
+                            <input {...props.register(`${id}`, props.validation)} type="radio" id={buttonLabel} name={id} value={buttonLabel} />
                             <label htmlFor={buttonLabel}>{buttonLabel}</label>
                         </React.Fragment>
                     )
                 })}
+                {errors[`${props.id}`]?.message && (
+                    <ErrorMessageWrapper>
+                        {errors[`${props.id}`]?.message}
+                    </ErrorMessageWrapper>
+                )}
             </InputWrapper>
         </RadioButtonWrapper>
     )
 
 }
+
+
+const ErrorMessageWrapper = styled.div`
+    color:red;
+    font-size: 12px;
+    font-style:italic
+`
 
 const InputWrapper = styled.div`
     padding: 5px 0px;
@@ -40,8 +54,8 @@ const InputWrapper = styled.div`
         display: inline-block;
         visibility: visible;
         border: 2px solid white;
-        ${props=>props.theme === 'dark' && `
-            color:white;
+        ${props => props.theme === 'dark' && `
+            color:black;
             background-color: #141414ff;
         `}
         }
@@ -53,9 +67,9 @@ const InputWrapper = styled.div`
 
 const RadioButtonWrapper = styled.div`
     display:block;
-    ${props=>props.theme === 'dark' && `
-            color:white;
-            font-weight: bold;
+    font-weight: bold;
+    ${props => props.theme === 'dark' && `
+            color:black;
         `}
 `
 

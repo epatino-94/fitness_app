@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import CarouselTile from "./CarouselTile";
 import ExerciseData from './ExerciseData';
-
+import { ReactSVG } from 'react-svg';
 
 const Carousel = (props) => {
 
@@ -35,23 +35,47 @@ const Carousel = (props) => {
         })
         setCarouselSlides(CarouselTiles.length);
         setCarouselTiles(CarouselTiles);
-    }, [theme,viewport,props.dataKey])
+    }, [theme, viewport, props.dataKey])
 
 
 
     return (
         <CarouselWrapper viewport={viewport} theme={theme}>
-            <RightCaretWrapper onClick={() => nextSlide()} viewport={viewport} theme={theme}>
-                <img alt="right-caret" src='/fitness_app/assets/icons/caret-right-fill.svg'></img>
-            </RightCaretWrapper>
-            <LeftCaretWrapper onClick={() => prevSlide()} viewport={viewport} theme={theme}>
-                <img alt="left-caret" src='/fitness_app/assets/icons/caret-left-fill.svg'></img>
-            </LeftCaretWrapper>
-            {carouselTiles.length > 0 && carouselTiles[currentCarouselIndex]}
+            {carouselTiles.length > 0 &&
+                <>
+                    <RightCaretWrapper onClick={() => nextSlide()} viewport={viewport} theme={theme}>
+                        <ReactSVG alt="right-caret" src='/fitness_app/assets/icons/caret-right-fill.svg'></ReactSVG>
+                    </RightCaretWrapper>
+                    <LeftCaretWrapper onClick={() => prevSlide()} viewport={viewport} theme={theme}>
+                        <ReactSVG alt="left-caret" src='/fitness_app/assets/icons/caret-left-fill.svg'></ReactSVG>
+                    </LeftCaretWrapper>
+                    <HeaderWrapper viewport={viewport} theme={theme}>
+                        {props.dataKey}
+                    </HeaderWrapper>
+                    {carouselTiles[currentCarouselIndex]}
+                </>
+            }
         </CarouselWrapper>
     )
 }
 
+
+
+const HeaderWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    padding: 15px 0px;
+    font-size: 35px;
+    font-weight: bold;
+
+    ${props => props.theme === 'light' && `
+        color: #590f6e;
+    `}
+    ${props => props.theme === 'dark' && `
+        color: black;
+    `}
+
+`
 
 
 const LeftCaretWrapper = styled.div`
@@ -61,12 +85,18 @@ const LeftCaretWrapper = styled.div`
     cursor: pointer;
     left: 0px;
     ${props => props.viewport === 'Mobile' && `
-        top: 80px;
+        top: 20px;
     `}
     ${props => props.viewport === 'Tablet' && `
-        top: 80px;
+        top: 20px;
     `}
     ${props => props.viewport === 'Desktop' && `
+        padding: 0px 20px;
+    `}
+    ${props => props.theme === 'dark' && `
+        svg{
+            fill:black;
+        }
     `}
 `
 const RightCaretWrapper = styled.div`
@@ -76,12 +106,18 @@ const RightCaretWrapper = styled.div`
     cursor: pointer;
     right: 0px;
     ${props => props.viewport === 'Mobile' && `
-        top: 80px;
+        top: 20px;
     `}
     ${props => props.viewport === 'Tablet' && `
-        top: 80px;
+        top: 20px;
     `}
     ${props => props.viewport === 'Desktop' && `
+        padding: 0px 20px;
+    `}
+    ${props => props.theme === 'dark' && `
+        svg{
+            fill: black;
+        }
     `}
 `
 
@@ -90,8 +126,12 @@ const CarouselWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content:center;
-
-
+    flex-direction: column;
+    border-radius: 8px;
+    background-filter: blur(20px);
+    background-color: rgba(255,255,255,0.5);
+    box-shadow: 0 1px 12px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.3);
 `
 
 export default Carousel;

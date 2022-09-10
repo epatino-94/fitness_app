@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "../Button/Button";
 
 
 const CarouselTile = (props) => {
@@ -23,6 +22,28 @@ const CarouselTile = (props) => {
     )
 }
 
+const HeaderWrapper = styled.div`
+    text-align:center;
+    font-size: 25px;
+    font-weight: bold;
+    ${props => props.viewport === 'Mobile' && `
+        padding: 0px 0px 0px 0px;
+        width: 100%;
+        font-size: 20px;
+    `}
+    ${props => props.viewport === 'Tablet' && `
+        padding: 0px 0px 0px 0px;
+        width: 100%;
+        font-size: 20px;
+    `}
+    ${props => props.theme === 'light' && `
+        color: #590f6e;
+    `}
+    ${props => props.theme === 'dark' && `
+        color: black; /*#db92f0*/;
+    `}
+`
+
 const ImageWrapper = styled.div`
     display: flex;
     justify-content:center;
@@ -43,51 +64,30 @@ const ParagraphWrapper = styled.div`
     display: flex;
     justify-content:center;
     width: 100%;
+    padding: 30px 0px;
     ${props => props.theme === 'light' && `
         color: #590f6e;
     `}
     ${props => props.theme === 'dark' && `
-        color: white; /*#db92f0*/;
+        color: black; /*#db92f0*/;
     `}
 `
 
-const HeaderWrapper = styled.div`
-    text-align:center;
-    font-size: 25px;
-    font-weight: bold;
-    ${props => props.viewport === 'Mobile' && `
-        padding: 0px 0px 0px 0px;
-        width: 100%;
-        font-size: 20px;
-    `}
-    ${props => props.viewport === 'Tablet' && `
-        padding: 0px 0px 0px 0px;
-    `}
-    ${props => props.theme === 'light' && `
-        color: #590f6e;
-    `}
-    ${props => props.theme === 'dark' && `
-        color: white; /*#db92f0*/;
-    `}
-`
-
-const ButtonWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    padding: 10px 0px;
-`
 
 const DescriptionWrapper = styled.div`
     width: 100%;
-    height: 500px;
+    min-height: 500px;
     ${props => props.viewport === 'Mobile' && `
         width: 90%;
         text-align:center;
-        height: 400px;
         padding: 10px 0px;
+        min-height: 0px;
     `}
     ${props => props.viewport === 'Tablet' && `
         width: 90%;
+        text-align:center;
+        padding: 10px 0px;
+        min-height: 0px;
     `}
     display:flex;
     flex-direction: column;
@@ -95,7 +95,7 @@ const DescriptionWrapper = styled.div`
     p{
         width: 50%;
         text-align:left;
-        ${props => props.viewport === 'Mobile' && `
+        ${props => props.viewport !== 'Desktop' && `
         width: 100%;
         text-align:center;
     `}
@@ -104,9 +104,42 @@ const DescriptionWrapper = styled.div`
         color: #590f6e;
     `}
     ${props => props.theme === 'dark' && `
-        color: white; /*#db92f0*/;
+        color: black; /*#db92f0*/;
     `}
+    -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.5s; /* Firefox < 16 */
+        -ms-animation: fadein 0.5s; /* Internet Explorer */
+         -o-animation: fadein 0.5s; /* Opera < 12.1 */
+            animation: fadein 0.5s;
 
+
+    @keyframes fadein{
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+    /* Firefox < 16 */
+    @-moz-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    /* Safari, Chrome and Opera > 12.1 */
+    @-webkit-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    /* Internet Explorer */
+    @-ms-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    /* Opera < 12.1 */
+    @-o-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
 `
 
 

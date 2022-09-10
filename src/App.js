@@ -7,8 +7,10 @@ import MuscleSection from './Components/MuscleSection/MuscleSection';
 function App() {
 
 
-  const [viewport,setViewport] = React.useState(window.innerWidth < 576 ? 'Mobile' : window.innerWidth < 768 ? 'Tablet' : 'Desktop')
+  const [viewport,setViewport] = React.useState(window.innerWidth < 576 ? 'Mobile' : window.innerWidth < 821 ? 'Tablet' : 'Desktop')
   const [theme, setCurrentTheme] = React.useState('light');
+
+  console.log('viewport',viewport)
   
   const invertTheme = (theme) => {
     theme === 'light' ? setCurrentTheme('dark') : setCurrentTheme('light');
@@ -26,7 +28,7 @@ function App() {
   return (
     <>
       <NavBar invertTheme={invertTheme} viewport={viewport} theme={theme}/>
-      <CalorieSection viewport={viewport} theme={theme}/>
+      {<CalorieSection viewport={viewport} theme={theme}/>}
       <MuscleSection viewport={viewport} theme={theme}/>
     </>
   );
