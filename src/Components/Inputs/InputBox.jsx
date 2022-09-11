@@ -9,7 +9,7 @@ const InputBox = (props) => {
     const displayErrorBorder= errors[`${props.id}`]?.message ? true : false;
     const isTouched = `${props.id}` in touched ? true:false; 
 
-    console.log('Current Errors:',isTouched)
+   
 
     return (
         <InputWrapper touched={isTouched} error={displayErrorBorder} theme={props.theme}>

@@ -82,12 +82,7 @@ const Section = styled.div`
     ${props=>props.viewport === 'Desktop' && `
     `}
 
-    ${props=>props.theme === 'light' && `
-        background-color: #e4e5f1;
-    `}
-    ${props=>props.theme === 'dark' && `
-        background-color: #373737ff;;
-    `}
+
 
 `
 
